@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .note-wrapper
+    if user
+      #note-form 
+        form#textarea-form(action='/post' method='post')
+          .textarea-wrapper
+            textarea(name="content", maxlength='200')
+          button#content-btn.btn(type="submit") 기록하기
+      #item-wrapper
+        for note in notes
+          .note-text= note.content      
+    else
+      .note-text 로그인을 하시면 노트를 남길 수 있습니다.   

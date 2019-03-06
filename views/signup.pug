@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .signup-wrapper.input-field
+    form#signup-form(action='/auth/signup' method='post')
+      .input-group
+        label(for='signup-email') 이메일
+        input#signup-email(type='email' name='email')
+      .input-group
+        label(for='signup-nick') 닉네임
+        input#signup-nick(type='text' name='nick')
+      .input-group
+        label(for='signup-password') 비밀번호
+        input#signup-password(type='password' name='password')
+      if signupError
+        .error-message= signupError
+      .input-button  
+        button#signup-btn.btn(type='submit') 회원가입
